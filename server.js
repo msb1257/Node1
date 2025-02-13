@@ -1,17 +1,16 @@
-'use strict';
+// A simple Node.js server
+const http = require('http');
 
-var app = require('./index');
-var http = require('http');
+const hostname = '127.0.0.1';
+const port = 3000;
 
-
-var server;
-
-/*
- * Create and start HTTP server.
- */
-
-server = http.createServer(app);
-server.listen(process.env.PORT || 8000);
-server.on('listening', function () {
-    console.log('Server listening on http://localhost:%d', this.address().port);
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, world!\n');
 });
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
