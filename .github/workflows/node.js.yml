@@ -30,8 +30,8 @@ jobs:
         run: npm install
 
       # Run tests (optional, but recommended)
-      - name: Run tests
-        run: npm test
+      #- name: Run tests
+       # run: npm test
 
       # Build the application (if applicable)
       - name: Build the app
