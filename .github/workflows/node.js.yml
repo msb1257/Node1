@@ -1,0 +1,45 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+      - 'develop'
+  pull_request:
+    branches:
+      - main
+      - 'develop'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # You can change this to any version you need
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run tests (optional, but recommended)
+      - name: Run tests
+        run: npm test
+
+      # Build the application (if applicable)
+      - name: Build the app
+        run: npm run build  # Adjust if your build command differs
+
+      # Optionally, you can also deploy the application or upload artifacts here
+      # - name: Deploy the application
+      #   run: npm run deploy
+
+
+
