@@ -1,16 +1,23 @@
-// A simple Node.js server
-const http = require('http');
+const express = require('express');
+const path = require('path');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express();
+const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello, world!\n');
+// Serve static files from the dist directory
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// API Route example
+app.get('/api', (req, res) => {
+  res.json({ message: 'Hello from the server!' });
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// Catch-all for any other route (used for client-side routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });
 
