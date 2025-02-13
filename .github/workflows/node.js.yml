@@ -4,42 +4,29 @@ on:
   push:
     branches:
       - main
-      - 'develop'
   pull_request:
     branches:
       - main
-      - 'develop'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code from the repository
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'  # You can change this to any version you need
+          node-version: '14'  # Specify the Node.js version you need
 
-      # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Run tests (optional, but recommended)
-      #- name: Run tests
-       # run: npm test
+      - name: Run build script
+        run: npm run build  # This will run the build script in package.json
 
-      # Build the application (if applicable)
-      - name: Build the app
-        run: npm run build  # Adjust if your build command differs
-
-      # Optionally, you can also deploy the application or upload artifacts here
-      # - name: Deploy the application
-      #   run: npm run deploy
-
-
+      - name: Start the application
+        run: npm start  # This will start the application using the start script in package.json
 
