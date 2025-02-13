@@ -1,18 +1,18 @@
 # NodeJs Projects
-## Project#10: ELearn
+## Project#06: TekBooks
 
-- NodeJs + Express + MongoDB + Mongoose
-- Using Custom Theme KickStart.
-- Login System for Students and Instructors.
-- Register for Class and see Lessons in it.
-- Adding Classes and Lessons.
-
+- NodeJs + Kraken + MongoDB (Mongoose)
+- Building full CRUD methods for Books
+- Simple CRUD for Categories
+- Working with Dust templates
+- Adding Cart Functionality + Simple Paypall checkout.
+- Using Foundation for the Style.
 
 Final Show Case
-![VIEWS](https://github.com/MAshrafM/NodeJS_Projects/blob/master/10_ELearn/show.jpg)
+![VIEWS](https://github.com/MAshrafM/NodeJS_Projects/blob/master/06_TekBooks/show.jpg)
 
 ### Future
-- Adding Editor for Lessons.
-- Adding Videos.
-- Quiz System.
-- Custom Style.
+- Restrict Adding Books and Categories to Manager.
+- Add Users for reviews and comments.
+- Restrict comments to users.
+- Add Sample read for books.
